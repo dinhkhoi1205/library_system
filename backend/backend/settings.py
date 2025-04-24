@@ -95,10 +95,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bookdb',
-        'USER': 'root',
-        'PASSWORD': 'Admin@123',
-        'HOST': ''
+        'NAME': os.getenv('DB_NAME', 'bookdb'),
+        'USER': os.getenv('DB_USER', 'root'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'Admin@123'),
+        'HOST': os.getenv('DB_HOST', ''),
     }
 }
 
