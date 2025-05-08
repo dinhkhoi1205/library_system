@@ -22,9 +22,13 @@ router = DefaultRouter()
 router.register(r'books', BookViewSet, basename='book')
 
 urlpatterns = [
-    path("register/", CreateUserView.as_view(), name="register"),
+    # Register new user for testing
+    # path("register/", CreateUserView.as_view(), name="register"),
+    # Allow user to borrow books
     path("borrow/", BorrowBookView.as_view(), name="borrow-book"),
+    # View list current book borrowed
     path("borrowed/", UserBorrowedBooksView.as_view()),
+    # Return a book
     path("return/", ReturnBookView.as_view(), name="return-book"),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
